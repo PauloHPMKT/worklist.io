@@ -1,27 +1,40 @@
-let inputData = document.querySelector('#inputData')
-let enterData = document.querySelector('#enterData')
-let list = document.querySelector('#list')
+// capturando elementos via querySelector
+let inputTarefa = document.querySelector('input')
+const toast = document.querySelector('.toast')
+const botaoCadastro = document.querySelector('#botaoCadastro')
+const lista = document.querySelector('#lista')
 
+//atribuindo função de controle 
+botaoCadastro.onclick = function mostrarToast () {
+    // validação para cadastro de tarefas
+    if (inputTarefa.value == '') {
+        toast.classList.add('visiblebg')
+        toast.innerHTML = `<div>Cadastre uma tarefa!</div>`
 
-enterData.onclick = () => {
-    if (inputData.value === '') {
-        alert('Type a work value!')
+        setTimeout (() => {
+            toast.classList.remove('visiblebg')
+        }, 4000)
+
     } else {
-        list.innerHTML += `<li>${inputData.value}</li>`
-        cleanData()
+        toast.classList.add('visible')
+        toast.innerHTML = `<div>Tarefa ${inputTarefa.value} cadastrada com sucesso!</div>`
+        inserirLista()
+        limparInput()
+        
+        // tempo de visualização do toast
+        setTimeout (() => {
+            toast.classList.remove('visible')
+        }, 5000)
     }
+    
+}  
+
+// função para inserir lista
+function inserirLista() {
+    lista.innerHTML += `<li>${inputTarefa.value}</li>`
 }
 
-function cleanData() {
-    inputData.value = ''
+// função para limpeza do input
+function limparInput () {
+    inputTarefa.value = ''
 }
-
-/*inputData.addEventListener('keyup', function(e) {
-    let key = e.which || e.keyCode;
-    if (key == 13) { // 13 codigo da tecla Enter
-        list.innerHTML += `<li>${inputData.value}</li>`
-        cleanData()
-    } else if (inputData = '') {
-        alert('none')
-    }
-});*/
