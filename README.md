@@ -1,6 +1,7 @@
 # worklist.io
 
-this is my first work list project
+This is a simple project to training my skills with events JavaScript 
+work list project.
 
 how to use it?
 
