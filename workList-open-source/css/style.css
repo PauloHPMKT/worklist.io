@@ -1,0 +1,22 @@
+.toast {
+	display: inline-block;
+	position: absolute;
+	left: -100%;
+	bottom: 30px;
+	background: rgb(230, 255, 230);
+	border: 1px solid rgb(0, 162, 0);
+	border-radius: 6px;
+	padding: 15px;
+	color: green;
+	transition: all 600ms ease;
+}
+/* regra de estilo chamada via JS*/
+.toast.visible {
+	left: 30px;
+}
+.toast.visiblebg {
+	left: 30px;
+	background-color: red;
+	border: 1px solid rgb(121, 2, 2);
+	color: white;
+}
